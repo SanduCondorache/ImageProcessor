@@ -1,0 +1,22 @@
+In aceasta tema am avut de facut un program pentru a procesa imagini. Imaginile sunt reprezentate ca matrici de marimea NxM, fiecare pentru fiecare pixel avem 3 valori R,G,B. 
+In fisierul imageprocessing.c se afla implementarea tuturor functiilor pe care le vom utiliza pentru a prelucra.
+	- flip_horizontal : aceasta functie primeste ca parametru o imagine si returneaza o copie a imaginii oglindita pe orizontala
+	- rotate_left : aceasta functie primeste ca parametru o imagine si returneaza o copie a imaginii rotita la 90 de grade spre stanga  
+	- crop : aceasta funcite primeste ca parametru o imagine si returneaza imaginea obtinuta prin crop a celei originale reprezentand o sub-matrice care incepe de la coordonatele (x,y) ale imaginii originale si are marimea in loc de (N,M) are marimea (h,w)
+	- extend : aceasta functie primeste ca parametru o imagine si returneaza imaginea obtinuta prin extindere cu un numar de rows deasupra si dedesubt si cu un numar de cols la dreapta si la stanga. Pixelii noi care apar dupa ce extindem imaginea trebuie sa fie de culoare new_R,new_G,new_B
+	- paste : aceasta functie primeste ca parametri 2 imagini, image_dst si image_src. image_dst este imaginea peste care trebuie sa dam paste image_src, iar pixelii care ies in afara image_dst vor fi ignorati.
+	- apply_filter : aceasta functie primeste ca parametru primeste o imagine si intoarce o copie a acesteia peste care este aplicata un filtru. Un filtru este o matrice de dimensiunea filter_size care defineste modul in care fiecare pixel este modificat in functie de valoarea sa si de valorile vecinilor lui. 
+Toate implementarile acestor functii sunt scrise in fisierul imageprocessing.c
+In fisierul interactive.c utilizam functiile descrise mai sus pentru a procesa imagini. Programul citeste un sir de caractere si in functie de input face o anumita functie.
+ - "e" : programul se opresete si se dezaloca toate imaginile care au fost citite pana la momentul dat
+ - "l" : se citeste path la care se afla o imagine, iar aceasta este stocata intrun vector de imagini pe un index aparte
+ - "s" : se citeste un index si imaginea de pe indexul respectiv este salvata la un path
+ - "ah" : aplica operatia de flip_horizontal asupra unei imagini din vector indexul careia este citit de la tastatura
+ - "ar" : aplica operatia de rotate_left asupra unei imagini din vector
+ - "ac" : aplica operatia de crop asupra imaginii de la indexul respectiv
+ - "ae" : aplica operatia de extend asupra imaginii de la indexul citit de la tastatura
+ - "ap" : aplica operatia de paste a unei imagini sursa peste destinatie
+ - "cf" : creeaza un filter cu dimensiunea citita de la tastatura
+ - "af" : aplica un filter asupra unei imagini indexul careia este citit la tastatura
+ - "df" : sterge filter-ul de la indexul citit
+ - "di" : sterge imaginea de la indexul citit 
